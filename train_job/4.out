@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/exouser/YuZheng/train.py", line 4, in <module>
-    from utils.builder import ConfigBuilder
-  File "/home/exouser/YuZheng/utils/builder.py", line 9, in <module>
-    from timm.scheduler import create_scheduler
-ModuleNotFoundError: No module named 'timm'
