@@ -1,0 +1,24 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 03:33:51,259 train INFO: Building config ...
+2025-02-06 03:33:51,259 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 03:34:55,292 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 03:36:00,756 train INFO: Valid dataloaders build complete
+2025-02-06 03:36:00,756 train INFO: Building models ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 57, in subprocess_fn
+    model = builder.get_model()
+  File "/home/exouser/YuZheng/utils/builder.py", line 86, in get_model
+    model = autoencoder_kl_gan_model(self.logger, **params)
+  File "/home/exouser/YuZheng/models/autoencoder_kl_gan_model.py", line 20, in __init__
+    super().__init__(logger, **params)
+  File "/home/exouser/YuZheng/models/model.py", line 70, in __init__
+    from networks.autoencoder_kl import autoencoder_kl
+ModuleNotFoundError: No module named 'networks'

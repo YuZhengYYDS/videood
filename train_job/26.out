@@ -1,0 +1,45 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 16:40:08,263 train INFO: Building config ...
+2025-02-06 16:40:08,263 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 16:41:05,837 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 16:42:03,750 train INFO: Valid dataloaders build complete
+2025-02-06 16:42:03,751 train INFO: Building models ...
+2025-02-06 16:42:04,454 train INFO: finetune checkpoint path not exist
+2025-02-06 16:42:04,658 train INFO: params autoencoder_kl: 55912619
+2025-02-06 16:42:04,658 train INFO: params lpipsWithDisc: 2765634
+2025-02-06 16:42:04,659 train INFO: begin training ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 78, in subprocess_fn
+    model_without_ddp.trainer(train_dataloader, valid_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
+  File "/home/exouser/YuZheng/models/model.py", line 427, in trainer
+    self._iter_trainer(train_data_loader, test_data_loader, max_steps) 
+  File "/home/exouser/YuZheng/models/model.py", line 472, in _iter_trainer
+    batch = next(data_iter)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1480, in _next_data
+    return self._process_data(data)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1505, in _process_data
+    data.reraise()
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/_utils.py", line 733, in reraise
+    raise exception
+TypeError: Caught TypeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/exouser/YuZheng/datasets/hmdb.py", line 68, in __getitem__
+    'inputs': torch.from_numpy(frame).float().clone().detach(),  # 直接转换为 PyTorch 张量
+TypeError: expected np.ndarray (got Tensor)
+

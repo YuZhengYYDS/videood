@@ -1,0 +1,32 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 03:37:41,643 train INFO: Building config ...
+2025-02-06 03:37:41,643 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 03:38:44,849 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 03:39:43,851 train INFO: Valid dataloaders build complete
+2025-02-06 03:39:43,851 train INFO: Building models ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 57, in subprocess_fn
+    model = builder.get_model()
+  File "/home/exouser/YuZheng/utils/builder.py", line 86, in get_model
+    model = autoencoder_kl_gan_model(self.logger, **params)
+  File "/home/exouser/YuZheng/models/autoencoder_kl_gan_model.py", line 20, in __init__
+    super().__init__(logger, **params)
+  File "/home/exouser/YuZheng/models/model.py", line 70, in __init__
+    from networks.autoencoder_kl import autoencoder_kl
+  File "/home/exouser/YuZheng/networks/autoencoder_kl.py", line 3, in <module>
+    from networks.prediff.taming.autoencoder_kl import AutoencoderKL
+  File "/home/exouser/YuZheng/networks/prediff/taming/__init__.py", line 2, in <module>
+    from .losses.contperceptual import LPIPSWithDiscriminator
+  File "/home/exouser/YuZheng/networks/prediff/taming/losses/contperceptual.py", line 9, in <module>
+    from .lpips import LPIPS
+  File "/home/exouser/YuZheng/networks/prediff/taming/losses/lpips.py", line 6, in <module>
+    from torchvision.models import VGG16_Weights
+ImportError: cannot import name 'VGG16_Weights' from 'torchvision.models' (/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torchvision/models/__init__.py)

@@ -1,0 +1,54 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 16:32:55,108 train INFO: Building config ...
+2025-02-06 16:32:55,108 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 16:34:03,180 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 16:35:04,260 train INFO: Valid dataloaders build complete
+2025-02-06 16:35:04,260 train INFO: Building models ...
+2025-02-06 16:35:04,920 train INFO: finetune checkpoint path not exist
+2025-02-06 16:35:05,120 train INFO: params autoencoder_kl: 55912619
+2025-02-06 16:35:05,120 train INFO: params lpipsWithDisc: 2765634
+2025-02-06 16:35:05,120 train INFO: begin training ...
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+/home/exouser/YuZheng/datasets/hmdb.py:68: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  'inputs': torch.tensor(frame, dtype=torch.float32),
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 78, in subprocess_fn
+    model_without_ddp.trainer(train_dataloader, valid_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
+  File "/home/exouser/YuZheng/models/model.py", line 427, in trainer
+    self._iter_trainer(train_data_loader, test_data_loader, max_steps) 
+  File "/home/exouser/YuZheng/models/model.py", line 477, in _iter_trainer
+    loss = self.train_one_step(batch, step)
+  File "/home/exouser/YuZheng/models/autoencoder_kl_gan_model.py", line 39, in train_one_step
+    data_dict = self.data_preprocess(batch_data)
+  File "/home/exouser/YuZheng/models/autoencoder_kl_gan_model.py", line 27, in data_preprocess
+    tar_data = data['data_samples'].float().to(self.device, non_blocking=True, dtype=self.data_type)
+KeyError: 'data_samples'

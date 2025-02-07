@@ -1,0 +1,26 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 03:58:41,533 train INFO: Building config ...
+2025-02-06 03:58:41,533 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 03:59:48,701 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 04:01:02,149 train INFO: Valid dataloaders build complete
+2025-02-06 04:01:02,149 train INFO: Building models ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 57, in subprocess_fn
+    model = builder.get_model()
+  File "/home/exouser/YuZheng/utils/builder.py", line 86, in get_model
+    model = autoencoder_kl_gan_model(self.logger, **params)
+  File "/home/exouser/YuZheng/models/autoencoder_kl_gan_model.py", line 20, in __init__
+    super().__init__(logger, **params)
+  File "/home/exouser/YuZheng/models/model.py", line 114, in __init__
+    from utils.visualizer import get_visualizer
+  File "/home/exouser/YuZheng/utils/visualizer.py", line 8, in <module>
+    from datasets.sevir_util.sevir_cmap import get_cmap, VIL_COLORS, VIL_LEVELS
+ModuleNotFoundError: No module named 'datasets.sevir_util'

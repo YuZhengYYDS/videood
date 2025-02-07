@@ -1,0 +1,55 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 16:07:39,969 train INFO: Building config ...
+2025-02-06 16:07:39,969 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 16:08:37,726 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 16:09:36,166 train INFO: Valid dataloaders build complete
+2025-02-06 16:09:36,167 train INFO: Building models ...
+2025-02-06 16:09:36,872 train INFO: finetune checkpoint path not exist
+2025-02-06 16:09:37,072 train INFO: params autoencoder_kl: 55912619
+2025-02-06 16:09:37,072 train INFO: params lpipsWithDisc: 2765634
+2025-02-06 16:09:37,072 train INFO: begin training ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 78, in subprocess_fn
+    model_without_ddp.trainer(train_dataloader, valid_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
+  File "/home/exouser/YuZheng/models/model.py", line 427, in trainer
+    self._iter_trainer(train_data_loader, test_data_loader, max_steps) 
+  File "/home/exouser/YuZheng/models/model.py", line 472, in _iter_trainer
+    batch = next(data_iter)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
+    data = self._next_data()
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1480, in _next_data
+    return self._process_data(data)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1505, in _process_data
+    data.reraise()
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/_utils.py", line 733, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 398, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 171, in collate
+    {
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 172, in <dictcomp>
+    key: collate(
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 155, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 285, in collate_numpy_array_fn
+    return collate([torch.as_tensor(b) for b in batch], collate_fn_map=collate_fn_map)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 155, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 272, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [240, 288, 3] at entry 0 and [240, 416, 3] at entry 1
+

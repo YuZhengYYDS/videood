@@ -1,0 +1,24 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 15:50:06,054 train INFO: Building config ...
+2025-02-06 15:50:06,054 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 15:51:02,764 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 15:52:00,290 train INFO: Valid dataloaders build complete
+2025-02-06 15:52:00,291 train INFO: Building models ...
+2025-02-06 15:52:00,968 train INFO: finetune checkpoint path not exist
+2025-02-06 15:52:01,163 train INFO: params autoencoder_kl: 55912619
+2025-02-06 15:52:01,163 train INFO: params lpipsWithDisc: 2765634
+2025-02-06 15:52:01,163 train INFO: begin training ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 78, in subprocess_fn
+    model_without_ddp.trainer(train_dataloader, valid_dataloader, builder.get_max_epoch(), builder.get_max_step(), checkpoint_savedir=args.relative_checkpoint_dir if model_without_ddp.use_ceph else args.run_dir, resume=args.resume)
+  File "/home/exouser/anaconda3/envs/yuzhengood/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1928, in __getattr__
+    raise AttributeError(
+AttributeError: 'autoencoder_kl_gan_model' object has no attribute 'trainer'

@@ -1,0 +1,17 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 03:04:18,779 train INFO: Building config ...
+2025-02-06 03:04:18,779 train INFO: Building dataloaders ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 27, in subprocess_fn
+    train_dataloader = builder.get_dataloader(split = 'train')
+  File "/home/exouser/YuZheng/utils/builder.py", line 200, in get_dataloader
+    dataset = self.get_dataset(dataset_params, split)
+  File "/home/exouser/YuZheng/utils/builder.py", line 118, in get_dataset
+    dataset = HMDBFrame(**dataset_params)
+TypeError: __init__() got an unexpected keyword argument 'type'

@@ -1,0 +1,24 @@
+/home/exouser/YuZheng/experiments/autoencoder_kl_gan/world_size1-hmdb_autoencoder
+load yaml from config
+Launching processes...
+2025-02-06 03:19:00,310 train INFO: Building config ...
+2025-02-06 03:19:00,310 train INFO: Building dataloaders ...
+Total frames in dataset: 186436
+2025-02-06 03:20:16,002 train INFO: Train dataloaders build complete
+Total frames in dataset: 186436
+2025-02-06 03:21:26,980 train INFO: Valid dataloaders build complete
+2025-02-06 03:21:26,980 train INFO: Building models ...
+Traceback (most recent call last):
+  File "/home/exouser/YuZheng/train.py", line 179, in <module>
+    main(args)
+  File "/home/exouser/YuZheng/train.py", line 153, in main
+    subprocess_fn(args)
+  File "/home/exouser/YuZheng/train.py", line 57, in subprocess_fn
+    model = builder.get_model()
+  File "/home/exouser/YuZheng/utils/builder.py", line 85, in get_model
+    from models.autoencoder_kl_gan_model import autoencoder_kl_gan_model
+  File "/home/exouser/YuZheng/models/autoencoder_kl_gan_model.py", line 2, in <module>
+    from models.model import basemodel
+  File "/home/exouser/YuZheng/models/model.py", line 22, in <module>
+    import wandb
+ModuleNotFoundError: No module named 'wandb'
