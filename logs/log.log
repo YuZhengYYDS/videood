@@ -1,0 +1,2 @@
+2025-02-07 00:46:29,191 autoencoder_test INFO: finetune checkpoint path not exist
+2025-02-07 00:46:44,816 autoencoder_test INFO: last epoch:1.2145508378210217, metric best:0.0021679496116807856
